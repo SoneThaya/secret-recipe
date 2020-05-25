@@ -40,16 +40,23 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function RecipeCard({food}) {
-  const { title, imageUrl } = food
+  const { title, imageUrl, source, instructions, ingredients } = food
   
   const classes = useStyles();
 
   return (
-    <div>
-     {title}
-      <img src={imageUrl} />
-     
-     
+    <div className='recipe-card'>
+    
+      <div>
+        <img src={imageUrl}  className="image-class" />
+      </div>
+
+      <div className="text-class">
+        <h2>Name: {title}</h2>
+        <h3>Source: {source}</h3>
+        <p><strong>Ingredients:</strong> {ingredients}</p>
+        <p><strong>Instructions:</strong> {instructions}</p>
+      </div>
        
     </div>
   );

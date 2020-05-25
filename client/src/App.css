@@ -57,4 +57,45 @@
   margin: 4px 2px;
   cursor: pointer;
 }
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+/* .recipe-card img {
+  width: 50vw;
+  height: 70vh;
+  margin: 10px;
+} */
 
+.text-class {
+  float:left;
+  width: 45vw;
+  height:20px;
+  margin: 10px;
+}
+
+.image-class {
+  float:left;
+  width: 50vw;
+  height: 70vh;
+  margin: 10px;
+}
+.recipe-card {
+  text-align: left;
+}
+@media only screen and (max-width: 700px) {
+  .text-class {
+    
+    width: 90vw;
+    height:50px;
+  }
+  
+  .image-class {
+   
+    width: 90vw;
+    height: 70vh;
+    margin: 10px;
+  }
+}
