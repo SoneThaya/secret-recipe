@@ -1,32 +1,39 @@
-import React, { Component } from 'react';
-import './customers.css';
+import React from 'react';
+import { Link } from 'react-router-dom'
 
-class Customers extends Component {
-  constructor() {
-    super();
-    this.state = {
-      customers: []
-    };
-  }
+import CardBootStrap from './CardBootStrap';
+import { Grid } from '@material-ui/core';
 
-  componentDidMount() {
-    fetch('/api/customers')
-      .then(res => res.json())
-      .then(customers => this.setState({customers}, () => console.log('Customers fetched...', customers)));
-  }
 
-  render() {
-    return (
-      <div>
-        <h2>Customers</h2>
-        <ul>
-        {this.state.customers.map(customer => 
-          <li key={customer.id}>{customer.firstName} {customer.lastName}</li>
-        )}
-        </ul>
+const Customers = (props) => {
+  
+ 
+
+  return (
+    <div>
+     
+      <div className="grid-container">
+      
+        <Grid container spacing={3}>
+        <Grid container item sm={12} spacing={5}>
+        
+            {props.recipes.map(recipe => (
+              <Link  key={recipe.id} to={`/recipes/${recipe.id}`}>
+              <CardBootStrap
+                goToRecipe={() => props.goToRecipe(recipe)}
+                recipe={recipe}
+                />
+                </Link>
+            ))}
+
+        </Grid>
+        </Grid>
+ 
       </div>
+    
+    </div>
     );
   }
-}
+
 
 export default Customers;
